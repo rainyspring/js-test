@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+
+
+	<style>
+      
+	   
+    </style>
+</head>
+
+
+</body>
+<script>
+// 回调
+
+function a(callback){
+	if (typeof callback == "function") {
+		callback();
+	}
+	
+	console.log("111");
+}
+
+a(function(){
+
+console.log("222");
+});
+</script>
+</html>

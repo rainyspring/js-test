@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+
+
+	<style>
+      
+	   
+    </style>
+</head>
+
+
+</body>
+<script>
+	 //处理正则 
+	 let d="M 3.0726316,4.2931032 V 14.372616 L 14.921769,11.623659 V 6.0112002 Z ";
+	 let floatReg = "\\d+(\\.\\d+)?";
+	 let regxString2 = "([A-Z])(\\s*)("+floatReg+")(,"+floatReg+")?";
+	 
+	 
+	 
+	 let regxString = "([A-Z])(\s*)(\d+(\.\d+)?)(,\d+(\.\d+)?)?";
+	 let regx = new RegExp(regxString,"g");
+	  //let regx = new RegExp("[A-Z]","g"); 
+	 var array = d.match(/([A-Z])(\s*)(\d+(\.\d+)?)(,\d+(\.\d+)?)?/g);
+	 console.log(array);
+	 var array2 = d.match(regxString2,"g");
+	 console.log(array2);
+
+	var a1 = "23.987xxx".match(/\d+(\.\d+)?/g);
+	 console.log(a1);
+	 
+	 
+	 let b1="aaa stroke :aa none ;".match(/stroke\s*:\s*none\s*;/)
+	 console.log(b1);
+</script>
+</html>

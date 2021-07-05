@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+
+
+	<style>
+      
+	   
+    </style>
+</head>
+
+
+</body>
+<script>
+
+
+class Color{
+  constructor() {
+	this.x = "Color"
+  }
+  print(){
+	console.log("C-print"+this.x)
+  }
+
+ 
+  
+}
+class Point extends Color{
+  constructor(y) {
+	super();
+	this.y = y;
+  }
+  print(){
+  
+	console.log("P-print");
+	super.print();
+  }
+
+  
+  getValue(){
+	console.log(this.x);
+
+  }
+}
+
+
+/*
+重写方法中，子、父的方法能够保留
+如果子类重写父类属性，则父类属性永不可见（无论通过this.或 super.）；
+如果没有重写属性，则父类方法中 this.子类属性可以访问。
+
+结论
+完美的继承策略
+*/
+var p = new Point(1,2);
+p.print()
+p.getValue()
+
+</script>
+</html>

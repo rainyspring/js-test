@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+
+
+	<style>
+      
+	   
+    </style>
+</head>
+
+
+</body>
+<script>
+let a = new Set([1, 2, 3]);
+let b = new Set([4, 3, 2]);
+
+// 并集
+let union = new Set([...a, ...b]);
+// Set {1, 2, 3, 4}
+console.log(union);
+
+// 交集
+let intersect = new Set([...a].filter(x => b.has(x)));//ES6
+//var intersect = new Set([...a].filter(function(x){
+//    return b.has(x);
+//}))
+// set {2, 3}
+console.log(intersect);
+// 差集
+let difference = new Set([...a].filter(x => !b.has(x)));
+// Set {1}
+console.log(difference);
+
+
+let c = new Set(["a","b","c","d"]);
+//遍历中删除 iterator
+for(let li of c.values()){
+	if(li=="c"){
+		c.delete(li);
+	}
+}
+console.log(c);
+
+
+//测试 Set 集合里面的元素顺序是否稳定
+let e = new Set();
+e.add("b");
+e.add("a");
+e.add("f");
+e.add("c");
+console.log(e);
+</script>
+</html>
