@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+	<!-- 扩充在 div 内绑定 resize 事件-->
+	<script type="text/javascript" src="./js/jquery.resize.js"></script>
+
+	<style>
+      
+	   
+    </style>
+</head>
+<body>
+
+	<a  href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="enlarge()">将width，height增加10px</a>
+
+	<div id="a" style="background-color:green;width:200px;height:200px;color:white;font-size:20px;">
+		我是个快乐的 div
+	</div>
+</body>
+<script>
+
+ $('#a').resize(function(){
+	console.log($('#a').width(),$('#a').height());
+ })
+
+
+function enlarge(){
+
+	let w = $('#a').width();
+	let h = $('#a').height();
+	$('#a').width(w+10);
+	$('#a').height(h+10);
+}
+</script>
+</html>
