@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/makerjs@0/target/js/browser.maker.js"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/bezier-js@2/bezier.js"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/opentype.js@0/dist/opentype.js"></script>
+    </style>
+</head>
+<body>
+
+
+</body>
+<script>
+
+class A {
+	constructor(x,y){
+        this.x = x;
+        this.y = y;
+    }
+} 
+
+let arr = [];
+arr.push(new A(10,13));
+arr.push(new A(9,10));
+arr.push(new A(1,120));
+arr.push(new A(22,30));
+arr.push(new A(12,0));
+arr.reverse();
+console.log(arr);
+
+//结论，对象数组，调用 reverse 依然 ok
+</script>
+</html>

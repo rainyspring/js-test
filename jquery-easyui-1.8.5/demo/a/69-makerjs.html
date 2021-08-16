@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/makerjs@0/target/js/browser.maker.js"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/bezier-js@2/bezier.js"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/opentype.js@0/dist/opentype.js"></script>
+    </style>
+</head>
+<body>
+
+	<input id="xx" class="easyui-textbox" data-options="" style="width:500px;height:500px;">
+
+	<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="svgToDxf()">easyui</a>
+
+</body>
+<script>
+	var makerjs = require('makerjs');
+	
+
+	function svgToDxf() {
+	 var svgContent = $("#xx").textbox("getValue");
+      if(!svgContent){
+        return;
+      }
+      var model = makerjs.importer.fromSVGPathData(svgContent);
+      var DXFString = makerjs.exporter.toDXF(model);
+      console.log("DXFString>>", DXFString);
+    }
+</script>
+</html>

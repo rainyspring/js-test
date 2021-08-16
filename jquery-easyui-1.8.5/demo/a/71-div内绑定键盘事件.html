@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+  
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	
+    </style>
+</head>
+<body>
+<div>
+	<div class="a" style="width:400px;height:300px;background-color:green;" tabIndex=-1>
+		
+		
+	</div>
+	
+	<div class="a" style="width:400px;height:300px;background-color:yellow;" tabIndex=-1>
+			
+			
+			<!-- 这个是svg 内容 -->
+			<svg
+			   
+			   width="400"
+			   height="300"
+			   viewBox="0 0 12 12"
+			   version="1.1"
+			   id="svg7429"
+			   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+			   sodipodi:docname="3-电动机.svg">
+			  <defs
+				 id="defs7423" />
+			  <sodipodi:namedview
+				 id="base"
+				 pagecolor="#ffffff"
+				 bordercolor="#666666"
+				 borderopacity="1.0"
+				 
+				 showgrid="false"
+				 
+				 inkscape:window-maximized="1" />
+			  
+			  <g
+				 inkscape:label="图层 1"
+				 inkscape:groupmode="layer"
+				 id="layer1">
+				<ellipse
+				   style="fill:none;stroke:#fa0000;stroke-width:0.604842;stroke-opacity:0"
+				   id="path15-5"
+				   cx="5.8835416"
+				   cy="6.1521397"
+				   rx="5.4534335"
+				   ry="5.4583259"
+				   class="probe" />
+				<g
+				   id="g13"
+				   class="graph">
+				  <text
+					 y="7.6330495"
+					 x="3.8615561"
+					 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.62848px;line-height:0%;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;stroke-width:0.385706"
+					 id="text14674"><tspan
+					   sodipodi:role="line"
+					   id="tspan14676"
+					   x="3.8615561"
+					   y="7.6330495"
+					   style="font-size:4.58611px;line-height:1.25;stroke-width:0.385706">M</tspan></text>
+				  <ellipse
+					 style="fill:none;stroke:#000000;stroke-width:0.50062;stroke-miterlimit:4;stroke-dasharray:none"
+					 id="path8013"
+					 cx="5.8903723"
+					 cy="6.1147962"
+					 rx="4.7496896"
+					 ry="4.7615013" />
+				</g>
+				<ellipse
+				   style="fill:none;stroke:#fa0000;stroke-width:0.523721;stroke-opacity:0"
+				   id="path15"
+				   cx="5.9133382"
+				   cy="6.1304946"
+				   rx="4.7158079"
+				   ry="4.7325125"
+				   class="border" />
+			  </g>
+			</svg>
+
+		
+	</div>
+</div>
+</body>
+<script>
+/**
+参考博文
+https://blog.csdn.net/zh1159007904/article/details/78026517
+
+3. 那就制造上下级关系，把customHandler绑定在custom.html里的一个div元素上
+
+$(“#divId”).bind("keypress",customHandler);
+
+测试发现监听不到按键事件，因为div元素没法获取焦点，但只要为div元素加上tabIndex属性就能获取焦点
+
+<div id="divId" tabIndex=-1></div>
+
+4. 测试发现div里面的内容外面多了一个边框，非常难看，加上style="outline:none"后边框消失。
+
+*/
+
+$(".a").bind("keyup",function(e){
+	var code = e.keyCode;
+	alert(code);
+	//删除选中的对象
+	
+	
+});
+
+
+/*
+	需要特殊注意的是：div 内包含 很多 内容，可能会影响外部div的 焦点获取，此时需要在鼠标点击div 时，主动让外部div 获取焦点。
+	即
+	$("#a").click(function(){
+		$("#a").focus();
+	});
+	
+	
+*/
+
+
+</script>
+</html>
