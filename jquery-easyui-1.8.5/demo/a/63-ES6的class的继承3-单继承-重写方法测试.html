@@ -53,6 +53,12 @@ class Point extends Color{
   }
 }
 
+class Circle extends Point{
+	constructor(y) {
+		super(y);	
+	}
+}
+
 
 /*
 重写方法中，子、父的方法能够保留
@@ -65,6 +71,9 @@ class Point extends Color{
 var p = new Point(1,2);
 p.print()
 p.getValue()
-
+console.log("--------------------");
+var a = new Circle(2);
+console.log(a instanceof Color)
+console.log(a instanceof Point)
 </script>
 </html>
