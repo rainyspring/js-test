@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Tabs Tools - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+	
+
+</head>
+<body>
+
+
+<div style="margin-bottom:50px;">为鼠标按下并且移动绑定一个函数（比如：实现鼠标按下不放并且移动才改变div的背景颜色）</div>
+
+<div id="b" style="width:200px;height:200px;background-color:#94860C;">
+	
+</div>
+
+
+<script type="text/javascript">
+
+
+
+addMouseDownAndMoveLinstenerByMethod3($('#b'),function(e){
+	$('#b').html(e.pageX+"."+e.pageY);
+});
+
+
+
+
+//方案1 
+function addMouseDownAndMoveLinstener_method1(domObject,triggerStayCallback,triggerOutCallback){
+
+	domObject.mousedown(function(){
+		$(this).mousemove(function(e){
+			if(typeof triggerStayCallback == 'function'){
+				triggerStayCallback(e);
+			}
+			
+		});
+		$(this).mouseup(function(){
+			$(this).unbind('mousemove');
+			$(this).unbind('mouseup');
+			if(typeof triggerOutCallback == 'function'){
+				triggerOutCallback(e);
+			}
+		});
+	}) 
+
+}
+
+//方案2
+function addMouseDownAndMoveLinstenerByMethod2(domObject,triggerStayCallback,triggerOutCallback){
+	let status = false;
+	let mousedownFunction=function(e){
+		status = true;
+	}
+	
+	let mousemoveFunction = function(e){
+	
+		if(!status){
+			return;
+		}
+		if(typeof triggerStayCallback == 'function'){
+			triggerStayCallback(e);
+		}
+		
+	}
+	
+	let mouseupFunction= function(e){
+		status = false;
+	
+		if(typeof triggerOutCallback == 'function'){
+			triggerOutCallback(e);
+		}
+		
+	}
+	
+	domObject.on("mousedown",mousedownFunction);
+	domObject.on("mousemove",mousemoveFunction);
+	domObject.on("mouseup",mouseupFunction);
+	
+
+}
+
+function removeMouseDownAndMoveLinstenerByMethod2(domObject){
+	domObject.off("mousedown",mousedownFunction);
+	domObject.off("mousemove",mousemoveFunction);
+	domObject.off("mouseup",mouseupFunction);
+}
+
+
+//方案3
+function addMouseDownAndMoveLinstenerByMethod3(domObject,triggerStayCallback,triggerOutCallback){
+	let status = false;
+	let mousedownFunction=function(e){
+		status = true;
+		domObject.on("mousemove",mousemoveFunction);
+		domObject.on("mouseup",mouseupFunction);
+	}
+	
+	let mousemoveFunction = function(e){
+	
+		if(!status){
+			return;
+		}
+		if(typeof triggerStayCallback == 'function'){
+			triggerStayCallback(e);
+		}
+		
+	}
+	
+	let mouseupFunction= function(e){
+		status = false;
+		domObject.off("mousemove",mousemoveFunction);
+		domObject.off("mouseup",mouseupFunction);
+		if(typeof triggerOutCallback == 'function'){
+			triggerOutCallback(e);
+		} 
+		
+	}
+	
+	domObject.on("mousedown",mousedownFunction);
+	
+
+}
+
+
+function removeMouseDownAndMoveLinstenerByMethod3(domObject){
+	domObject.off("mousedown",mousedownFunction);
+
+}
+
+
+</script>		
+
+</body>
+
+</html>

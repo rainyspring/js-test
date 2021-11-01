@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+	
+    </style>
+</head>
+<body>
+<div id="a" style="width:100px;height:100px;margin:100px;background-color:green;"> 
+
+
+</div>
+</body>
+<script>
+
+/*
+结论 是左键、中键、右键 的按下事件都会触发
+*/
+$("#a").on("mousedown",function(ev){
+	alert("mousedown");
+})
+
+
+
+</script>
+</html>

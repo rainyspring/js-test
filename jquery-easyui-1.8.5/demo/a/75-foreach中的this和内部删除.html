@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+	
+    </style>
+</head>
+<body>
+<div>
+
+	
+
+</div>
+</body>
+<script>
+
+class E{
+
+	constructor(){
+		this.a = new Set(["a","b","c","d"]);
+	}
+
+	test(){
+	
+		let that = this;
+		this.a.forEach(function(v){
+			if(v=="b"){
+				that.a.delete(v);
+			}
+			
+		})
+		console.log("over>>",this.a);
+	}
+
+}
+
+
+(new E()).test();
+
+
+
+</script>
+</html>
