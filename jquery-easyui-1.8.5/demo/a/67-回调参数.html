@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+
+	
+	<style>
+	.a1{
+		background-color:red;
+	}
+	.a2{
+		background-color:blue;
+	}
+	.a3{
+		background-color:pink !important;
+	}
+    </style>
+</head>
+
+
+<body>
+<!-- 优先级：style签内部 > class -->
+<div class="a1 " style="width:100px;height:100px;margin:100px;background-color:green;"> </div>
+
+<!-- 优先级：important > style签内部 -->
+<div class="a3 " style="width:100px;height:100px;margin:100px;background-color:green;"> </div>
+
+<!-- 优先级：<style> 中 class 代码顺序决定渲染顺序，后>前。和div 中 <class>的顺序无关 -->
+<div class="a1 a2 " style="width:100px;height:100px;margin:100px;"> </div>
+<div class="a2 a1 " style="width:100px;height:100px;margin:100px;"> </div>
+
+</body>
+<script>
+
+let a = (x,y)=>{
+	return x+y
+}
+
+console.log(a(1,555));
+
+
+</script>
+</html>

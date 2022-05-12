@@ -1,0 +1,11 @@
+{
+	"name":"jxtest",
+	"subProjects":[
+		{
+			"name":"a"
+		},
+		{
+			"name":"b"
+		}
+	]
+}

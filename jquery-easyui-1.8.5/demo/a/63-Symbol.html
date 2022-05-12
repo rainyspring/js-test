@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+
+	
+	<style>
+	.a1{
+		background-color:red;
+	}
+	.a2{
+		background-color:blue;
+	}
+	.a3{
+		background-color:pink !important;
+	}
+    </style>
+</head>
+
+
+<body>
+
+
+</body>
+<script>
+
+let s1 = Symbol.for('foo');
+let s2 = Symbol.for('foo');
+let s3  = Symbol('foo')
+
+console.log(s1 === s2) // true
+console.log(s1 === s3)
+
+
+</script>
+</html>

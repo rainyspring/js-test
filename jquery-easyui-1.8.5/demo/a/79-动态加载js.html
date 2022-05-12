@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+
+	
+	<style>
+
+    </style>
+</head>
+
+
+<body>
+<h1>我是主应用</h1>
+<h1>下面是动态加载子应用</h1>
+<div id="subprojects_apps">
+	
+</div>
+
+</span>
+</body>
+<script>
+
+// 读取 配置文件
+$.get("./apps/config.json",function(data){
+	if(!data){
+		return;
+	}
+	var subProjects = data.subProjects;
+	subProjects.forEach((project,index)=>{
+		var projectName = project.name;
+		
+		createButton(projectName);
+		
+		createScriptTag(projectName);
+		
+	})
+	
+	
+},"json")
+
+/**
+* 动态生成按钮
+*/
+function createButton(name){
+	var btn = $("#subprojects_apps").append("<button type='button'>"+name+"</button> ");
+}
+
+/**
+* 动态加载脚本
+*/
+function createScriptTag(userAppName){
+	var ohead = document.getElementsByTagName("head").item(0);
+	var oscript = document.createElement("script");
+	oscript.type="text/javascript";
+	oscript.src="./apps/a/app.js"
+	ohead.appendChild(oscript)
+
+}
+
+
+</script>
+</html>

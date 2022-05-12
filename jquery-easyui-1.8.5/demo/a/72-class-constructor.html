@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+	
+    </style>
+</head>
+<body>
+<div>
+
+	<a class="easyui-linkbutton" onclick="myclick()" data-options="iconCls:'icon-search'">点我</a>
+	<div id="a" style="width:400px;height:300px;background-color:green;" >
+		
+		
+	</div>
+	
+
+</div>
+</body>
+<script>
+
+function myclick(){
+
+	let a = new A();
+	a.trigger();
+}
+class A{
+	constructor(){
+		this.x = "X";
+	}
+	
+	print(){
+		console.log(this.x);
+	}
+	
+	trigger(){
+		$("#a").trigger("myevent",[this.print,this,"12345"])
+	}
+}
+
+$("#a").bind("myevent",function(event,msg1,source,msg2){
+	console.log("begin to show msg",event,msg1,msg2);
+	msg1.bind(source)();
+});
+
+
+
+</script>
+</html>
