@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+
+	
+
+    </style>
+</head>
+
+
+<body>
+<h1>我是主应用</h1>
+<h1>下面是动态加载子应用</h1>
+<div id="subprojects_apps">
+	
+</div>
+
+</span>
+</body>
+
+<script >
+
+var f = v => v;
+
+// 等同于
+var f = function (v) {
+  return v;
+};
+
+var f = () => 5;
+// 等同于
+var f = function () { return 5 };
+
+var sum = (num1, num2) => num1 + num2;
+// 等同于
+var sum = function(num1, num2) {
+  return num1 + num2;
+};
+
+
+let a = () => {
+  return (() => {
+    return {
+      name: 'jack',
+      age: 24,
+    };
+  })();
+}
+
+console.log(a());
+
+let b = () => {
+  return ({
+	name: 'jack',
+    age: 24,
+	})
+}
+
+console.log(b());
+
+
+</script>
+
+</html>
